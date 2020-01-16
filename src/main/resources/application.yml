@@ -1,0 +1,28 @@
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/oauth2
+    username: hhi
+    password: hhi
+    driverClassName: org.postgresql.Driver
+  quartz:
+    job-store-type: jdbc
+    overwrite-existing-jobs: true
+    wait-for-jobs-to-complete-on-shutdown: true
+    jdbc:
+      initialize-schema: always
+    properties:
+      org:
+        quartz:
+          jobStore:
+            isClustered: true
+            class: org.quartz.impl.jdbcjobstore.JobStoreTX
+            driverDelegateClass: org.quartz.impl.jdbcjobstore.PostgreSQLDelegate
+          scheduler:
+            instanceId: AUTO
+          threadPool:
+            threadCount: 10
+  influx:
+    url: http://localhost:8086
+    user: dhlee
+    password: dhlee
+
